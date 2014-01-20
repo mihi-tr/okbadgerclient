@@ -30,11 +30,9 @@ class Client():
             }
         if evidence:
             parameters['evidence']=evidence
-        print parameters    
         parameters="&".join(("%s=%s" % (k, quote(v)) for (k, v) in
                                 parameters.items()))
         url="%s/api/issue?%s" % (self.url, parameters)
-        print url
         u=urllib2.urlopen(url)
         return json.load(u)
 
